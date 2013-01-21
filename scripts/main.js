@@ -22,9 +22,7 @@ require.config({
 	}
 });
 
-require(['app'], function (appCreator) {
-  app1 = appCreator('foo');
-  app2 = appCreator('bar');
-  console.log(app1.getName());
-  console.log(app2.getName());
+require(['app'], function (app) {
+    "use strict";
+    app.init();
 });
