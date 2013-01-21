@@ -1,0 +1,2 @@
+#!/bin/sh
+java -jar ./app/jslint4java.jar $1
