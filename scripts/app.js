@@ -11,12 +11,29 @@ define(["model/todo", "artist", "engineer"], function (todoCreator, artistCreato
             this.backboning();
         },
         "backboning": function () {
-            var todo1 = todoCreator(),
+            var tmp,
+                todo1 = todoCreator(),
                 todo2 = todoCreator({
                     "title": "Some not default title"
+                }),
+                todo3 = todoCreator({
+                    "title": "Some completed title",
+                    completed: true,
+                    additionalAttribute: 5
                 });
-            console.log(todo1);
-            console.log(todo2);
+            console.log(todo1.get("title"));
+            todo1.set({
+                title: 'changed',
+                completed: 4
+            });
+            todo1.set({
+                title: 'changed',
+                completed: 5
+            });
+//            todo1.set('title', 'changed 2');
+//            todo1.set('completed', true);
+//            todo1.set('foo', true);
+            console.log(todo1.attributes);
         }
     };
 });
