@@ -1,6 +1,6 @@
-/*global define*/
+/*global define,console*/
 
-define(["model/artist", "model/engineer"], function (artistCreator, engineerCreator) {
+define(["model/todo", "artist", "engineer"], function (todoCreator, artistCreator, engineerCreator) {
     "use strict";
     return {
         "init": function () {
@@ -8,6 +8,15 @@ define(["model/artist", "model/engineer"], function (artistCreator, engineerCrea
                 dude2 = engineerCreator("Jerry");
             dude1.greet();
             dude2.greet();
+            this.backboning();
+        },
+        "backboning": function () {
+            var todo1 = todoCreator(),
+                todo2 = todoCreator({
+                    "title": "Some not default title"
+                });
+            console.log(todo1);
+            console.log(todo2);
         }
     };
 });
